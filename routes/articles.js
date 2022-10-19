@@ -6,6 +6,14 @@ router.get("/new", (req, res) => {
   res.render("articles/new", { article: new Article() });
 });
 
+// Ruta principal Home
+router.get('/home', async(req, res)=>{
+    const articles = await Article.find().sort({
+        createAt: "desc"
+    }).limit(10)
+    res.render('articles/index', {articles: articles})
+})
+
 // Ruta para renderizar el Articulo a Editar
 router.get("/edit/:id", async (req, res, next) => {
   const article = await Article.findById(req.params.id);
@@ -37,7 +45,7 @@ router.put("/:id",async (req, res, next) => {
 // Eliminar ARticulo x ID
 router.delete('/:id', async(req, res)=>{
   await Article.findByIdAndDelete(req.params.id)
-  res.redirect('/')
+  res.redirect('home')
 })
 
 

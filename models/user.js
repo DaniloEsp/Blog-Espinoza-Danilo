@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
+const Article = require("../models/article");
+const User = require("../models/user");
 
 const userSchema = new mongoose.Schema({
     username:{type: String, required: true, unique: true},
@@ -30,9 +32,10 @@ userSchema.methods.isCorrectPassword = function(candidatePassword, callback){
     bcrypt.compare(candidatePassword,this.password,function(err,same) {
         if(err){
             callback(err);
-            console.log(err);
+            
         } else {
             callback(err,same);
+
         } 
     });
 }

@@ -28,8 +28,16 @@ app.get('/', async(req, res)=>{
     const articles = await Article.find().sort({
         createAt: "desc"
     }).limit(10)
-    res.render('articles/index', {articles: articles})
+    res.render('articles/home', {articles: articles})
 })
+
+// // Ruta principal Home
+// app.get('/', async(req, res)=>{
+//     const articles = await Article.find().sort({
+//         createAt: "desc"
+//     }).limit(10)
+//     res.render('articles/home', {articles: articles})
+// })
 
 // MongoDB connection
 mongoose
