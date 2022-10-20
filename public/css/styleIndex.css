@@ -1,0 +1,17 @@
+
+
+body{
+    background-color: rgb(70, 58, 168);
+}
+
+.color1{
+    background-color: rgb(70, 58, 168);
+}
+
+.zoom {
+    transition: transform .2s; 
+}
+ 
+.zoom:hover {
+    transform: scale(1.1); 
+}

@@ -9,7 +9,9 @@ body {
     font-size: 14pt;
     box-sizing: content-box;
     text-align: center;
-    background: url(../img/M4-desafio1-fondo.png);
+    
+        background-color: rgb(70, 58, 168);
+    
 }
 
 form {

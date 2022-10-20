@@ -17,17 +17,18 @@ router.post('/register',async (req,res)=>{
     const user = new User({username, password});
     await user.save(err=>{
         if (err) {
-            res.status(500).send('ERROR AL REGISTRAR EL USUARIO');
+            //res.status(500).send('ERROR AL REGISTRAR EL USUARIO');
         } else {
-            res.status(200).send('USUARIO REGISTRADO');
+            //res.status(200).send('USUARIO REGISTRADO');
+            res.redirect('articles/resgistrook')
         }
     })
 })
-router.post('/authenticate',(req,res)=>{
+router.post('/authenticate',async (req,res)=>{
     
     const {username, password} = req.body;
     
-            User.findOne({username}, (err,user)=>{ 
+           User.findOne({username}, (err,user)=>{ 
             
             if (err) {
                res.status(500).send('ERROR AL AUTENTICAR EL USUARIO');
@@ -38,7 +39,7 @@ router.post('/authenticate',(req,res)=>{
             }else{
                 user.isCorrectPassword(password,(err,result)=>{
                     if(err) {
-                        res.status(500).send('ERROR AL AUTENTICAR EL USUARIO');
+                        //res.status(500).send('ERROR AL AUTENTICAR EL USUARIO');
                         res.redirect('/');
                     } else if(result) {
                         //res.status(200).send('USUARIO AUTENTICADO CORRECTAMENTE');

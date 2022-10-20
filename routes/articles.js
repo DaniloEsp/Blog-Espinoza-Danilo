@@ -27,6 +27,19 @@ router.get("/:slug", async (req, res) => {
   res.render("articles/show", { article: article });
 });
 
+
+
+//ruta de invitado para ver
+// Obtenemos el Articulo con Slug aplicado
+// router.get("/invited/:slug", async (req, res) => {
+//   const article = await Article.findOne({ slug: req.params.slug });
+//   console.log('se conecto correctametne')
+//   if (article == null) res.redirect("/");
+//   res.render("articles/show", { article: article });
+// });
+
+
+
 // Creamos Nuevo Articulo
 router.post("/",async (req, res, next) => {
     req.article = new Article();
